@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    transition: 0.3s ease, transform 0.2s ease;
+}
+
+#rock {
+    background-color: #ff6347;
+    color: white;
+}
+
+#paper {
+    background-color: #4682b4;
+    color: white;
+}
+
+#scissors {
+    background-color: #32cd32;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+button:active {
+    background-color: #ddd;
+}
+
+table {
+    width: 80%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #4682b4;
+    color: white;
+    padding: 12px;
+    font-size: 1.1rem;
+}
+
+td {
+    padding: 12px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#declareWinner {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#restart {
+    background-color: #ff8c00;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restart:hover {
+    background-color: #ff7f00;
+}
+
+#restart:active {
+    background-color: #e67e00;
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    th, td {
+        font-size: 1rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+
+    #restart {
+        font-size: 1rem;
+        padding: 10px 20px;
+    }
+}

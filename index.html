@@ -5,10 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script src="./script/script.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <h1>Rock, Paper and Scissors</h1>
-    <p>Part of the curriculum of the Odin Project</p>
-    <p><strong>Reload the page to play again!!!</strong></p>
+    <p><strong>Choose any one of the buttons</strong></p>
+    <button id="rock">Rock</button>
+    <button id="paper">Paper</button>
+    <button id="scissors">Scissors</button>
+
+    <table>
+        <tr>
+            <th>Round</th>
+            <th>You</th>
+            <th>Computer</th>
+            <th>Your Score</th>
+            <th>Computer Score</th>
+        </tr>
+        <tr>
+            <td id="round"></td>
+            <td id="user"></td>
+            <td id="computer"></td>
+            <td id="userScore"></td>
+            <td id="computerScore"></td>
+        </tr>
+    </table>
+
+    <p id="declareWinner"></p>
+
+    <button id="restart">Restart</button>
 </body>
 </html>

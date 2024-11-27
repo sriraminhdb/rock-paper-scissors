@@ -1,42 +1,68 @@
-function getComputerChoice() {
-    let array = ['ROCK', 'PAPER', 'SCISSORS'];
-    let result = array[Math.floor(Math.random() * array.length)];
-    return result;
-}
+document.addEventListener("DOMContentLoaded", () => {
 
-function getHumanChoice() {
-    let humanChoice = "";
-    while(true) {
-        humanChoice = prompt("Rock, Paper or Scissors");
-        humanChoice = humanChoice.toUpperCase();
-        if(humanChoice == 'ROCK' || humanChoice == 'PAPER' || humanChoice == 'SCISSORS') break;
-        else alert("Invalid Input! Please enter Rock, Paper or Scissors");
+    function getHumanChoice() {
+        return new Promise((resolve) => {
+            const btn1 = document.getElementById("rock");
+            btn1.addEventListener("click", () => resolve("ROCK"));
+
+            const btn2 = document.getElementById("paper");
+            btn2.addEventListener("click", () => resolve("PAPER"));
+
+            const btn3 = document.getElementById("scissors");
+            btn3.addEventListener("click", () => resolve("SCISSORS"));
+        });
     }
-    return humanChoice;
-}
 
-let humanScore = 0;
-let computerScore = 0;
+    let humanScore = 0;
+    let computerScore = 0;
 
-function playRound() {
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        if ((humanChoice == 'ROCK' && computerChoice == 'SCISSORS') || 
+    function getComputerChoice() {
+        let array = ['ROCK', 'PAPER', 'SCISSORS'];
+        let result = array[Math.floor(Math.random() * array.length)];
+        return result;
+    }
+
+    
+    function updateInfo(round, humanChoice, computerChoice) {
+            document.getElementById("round").textContent = round;
+            document.getElementById("user").textContent = humanChoice;
+            document.getElementById("computer").textContent = computerChoice;
+            document.getElementById("userScore").textContent = humanScore;
+            document.getElementById("computerScore").textContent = computerScore;
+    }
+
+    async function playRound () {
+        for (let i = 1; i < 6; i++) {
+            const humanChoice = await getHumanChoice();
+            const computerChoice = getComputerChoice();
+
+            if ((humanChoice == 'ROCK' && computerChoice == 'SCISSORS') || 
             (humanChoice == 'PAPER' && computerChoice == 'ROCK') ||
             (humanChoice == 'SCISSORS' && computerChoice == 'PAPER')) humanScore += 1;
     
-        else if ((humanChoice == 'ROCK' && computerChoice == 'PAPER') || 
+            else if ((humanChoice == 'ROCK' && computerChoice == 'PAPER') || 
             (humanChoice == 'PAPER' && computerChoice == 'SCISSORS') ||
             (humanChoice == 'SCISSORS' && computerChoice == 'ROCK')) computerScore += 1;
     
-        else {
-        }    
+            else {
+            }
+            updateInfo(i, humanChoice, computerChoice);
+        }
+        if (humanScore > computerScore) document.getElementById("declareWinner").textContent = "You Win!";
+        else if (humanScore < computerScore) document.getElementById("declareWinner").textContent = "Computer Wins!";
+        else document.getElementById("declareWinner").textContent = "It's a draw!";    
     }
 
-    if (humanScore > computerScore) alert("You win!");
-    else if (humanScore < computerScore) alert("Computer wins!");
-    else alert("It's a draw!");
-}
+    function newGame() {
+        humanScore = 0;
+        computerScore = 0;
+        updateInfo(0, "", "");
+        document.getElementById("declareWinner").textContent = "";
+        playRound();
+    }
 
-playRound();
+    playRound();
+
+    const newGameBtn = document.getElementById("restart");
+    newGameBtn.addEventListener("click", () => newGame());
+});
