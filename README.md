@@ -23,3 +23,7 @@ A simple interactive **Rock, Paper, Scissors** game where you can play against t
 2. **Game Rounds**: The game will run for 5 rounds, displaying both your choice and the computer’s choice each round.
 3. **Final Result**: After 5 rounds, the game will declare the winner based on who won the most rounds.
 4. **Restart**: Click the **Restart** button to play again.
+
+
+## Demo Link
+https://sriraminhdb.github.io/rock-paper-scissors/
